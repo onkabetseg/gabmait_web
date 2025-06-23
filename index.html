@@ -28,48 +28,51 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 }
 .contact-left img {
-  width: 120px;
+  width: 100px;
 }
 nav {
   justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
   border-bottom: 2px solid #ccc;
 }
 nav a {
-  margin: 0 15px;
+  margin: 5px 10px;
   text-decoration: none;
   color: #b30000;
   font-weight: bold;
+  font-size: 1em;
 }
 .top-banner {
   background-color: #00AEEF;
   color: white;
   text-align: center;
   padding: 10px;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: 'Brush Script MT', cursive;
 }
 .hero-carousel {
   width: 100%;
-  height: 420px;
+  height: auto;
   overflow: hidden;
   background-color: #fff;
 }
 .hero-carousel img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
 }
 .main-content {
-  padding: 30px 20px;
+  padding: 20px;
   background-color: #fff;
 }
 .under-construction {
   color: red;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   transform: rotate(-10deg);
   margin: 20px 0;
@@ -79,14 +82,16 @@ nav a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
 }
 .product-box {
   text-align: center;
+  max-width: 450px;
+  width: 100%;
 }
 .product-image-container {
-  width: 600px;
-  height: 450px;
+  width: 100%;
+  height: auto;
   overflow: hidden;
   border: 1px solid #ccc;
   background: white;
@@ -95,7 +100,7 @@ nav a {
 }
 .product-image-container img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
   transform-origin: center center;
@@ -103,10 +108,11 @@ nav a {
 }
 .add-to-cart {
   margin: 15px 0;
+  text-align: center;
 }
 .payment-buttons img {
-  height: 40px;
-  margin: 10px;
+  height: 35px;
+  margin: 8px;
 }
 .socials img {
   height: 24px;
@@ -118,6 +124,31 @@ nav a {
   border-radius: 50%;
   background-color: #25D366;
   padding: 2px;
+}
+@media (max-width: 768px) {
+  .contact-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .contact-left, .contact-middle, .contact-right {
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav a {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 1.1em;
+  }
+  .product-row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
 </head>
@@ -160,7 +191,6 @@ nav a {
 
   <div class="product-row">
 
-    <!-- First Product -->
     <div class="product-box">
       <h2>VIOFO A119 V3 Dash Cam</h2>
       <div class="product-image-container">
@@ -173,7 +203,6 @@ nav a {
       <p><strong>Price:</strong> BWP 1500.00</p>
     </div>
 
-    <!-- Second Product -->
     <div class="product-box">
       <h2>Additional Camera View</h2>
       <div class="product-image-container">
@@ -188,7 +217,7 @@ nav a {
 
   </div>
 
-  <div class="add-to-cart" style="text-align:center;">
+  <div class="add-to-cart">
     <button>Add to Cart</button>
     <button><a href="https://wa.me/26771662755?text=I%20want%20to%20order%20the%20Dash%20Cam">Order via WhatsApp</a></button>
   </div>
@@ -258,26 +287,6 @@ function prevImage(box) {
     showProductImage(2);
   }
 }
-
-function zoomEffect(imgId) {
-  const imgContainer = document.getElementById(imgId).parentElement;
-  const img = document.getElementById(imgId);
-
-  imgContainer.addEventListener('mousemove', function(e) {
-    const rect = imgContainer.getBoundingClientRect();
-    const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
-    const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
-    img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-    img.style.transform = 'scale(2)';
-  });
-  imgContainer.addEventListener('mouseleave', function() {
-    img.style.transformOrigin = 'center center';
-    img.style.transform = 'scale(1)';
-  });
-}
-
-zoomEffect('productImage1');
-zoomEffect('productImage2');
 
 const heroImages = [
   "WhatsApp Image 2025-06-22 at 11.56.59.jpeg",
