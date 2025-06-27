@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% Black square bullets
+\setbeamertemplate{itemize items}[square]
+\setbeamercolor{item}{fg=black}
+
+% Remove default headline and frametitle
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}{}
+
+% BIUST colors
+\definecolor{biustorange}{HTML}{ED6A23}
+\definecolor{biustblue}{RGB}{0,160,240}
+
+% Custom header with logo, bars, section title, and top progress bar
+\setbeamertemplate{headline}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[white] (current page.north west) rectangle ([xshift=\paperwidth,yshift=-1.9cm]current page.north west);
+        \node[anchor=north west, xshift=0.3cm, yshift=-0.55cm] at (current page.north west) {\includegraphics[height=1.2cm]{biust_logo.jpg}};
+        \shade[top color=biustblue, bottom color=biustblue!70!black] ([xshift=3.4cm,yshift=-0.7cm]current page.north west) rectangle ([xshift=3.9cm,yshift=-1.6cm]current page.north west);
+        \shade[left color=biustorange, right color=biustorange!80!black] ([xshift=4.0cm,yshift=-0.7cm]current page.north west) rectangle ([xshift=\paperwidth,yshift=-1.6cm]current page.north west);
+        \node[anchor=north west, text=white, font=\bfseries\small, xshift=4.2cm, yshift=-1.1cm] at (current page.north west) {\insertsectionhead};
+        \fill[gray!20] (current page.north west) ++(0,-1.9cm) rectangle ([xshift=\paperwidth,yshift=-2.0cm]current page.north west);
+        \fill[biustorange] (current page.north west) ++(0,-1.9cm) rectangle ([xshift=\paperwidth*\insertframenumber/\inserttotalframenumber,yshift=-2.0cm]current page.north west);
+    \end{tikzpicture}
+}
+
+% Footer with blue and orange project title bar
+\setbeamertemplate{footline}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[biustblue] (current page.south west) rectangle ([xshift=\paperwidth,yshift=1.1cm]current page.south west);
+        \node[anchor=south west, text=white, font=\tiny] at ([yshift=0.55cm,xshift=0.3cm]current page.south west) {Chilume O. Gabriel \quad MSc. Computer Science \& Information Systems};
+        \node[anchor=south east, text=white, font=\scriptsize] at ([yshift=0.55cm,xshift=-0.3cm]current page.south east) {\insertframenumber{} / \inserttotalframenumber};
+        \fill[biustorange] (current page.south west) ++(0,0.05cm) rectangle ([xshift=\paperwidth,yshift=0.5cm]current page.south west);
+        \node[anchor=south, text=white, font=\scriptsize] at ([yshift=0.01cm]current page.south) {\textbf{Integrating ZKP to Enhance Secure Blockchain Interoperability in Polkadot}};
+    \end{tikzpicture}
+}
+
+% Adjust content position below header
+\setbeamersize{text margin top=2.1cm}
+
+% Title Information
+\title{\textbf{ANALYSING INTEROPERABILITY ISSUES IN BLOCKCHAIN BASED SUPPLY CHAIN MANAGEMENT ECOSYSTEMS INVOLVING MULTIPLE BUSINESSES AND BLOCKCHAIN PLATFORMS}}
+\author{Chilume O. Gabriel \\ MSc Computer Science \& Information Systems \\ Supervisors: Dr. Z. Nedev \& Dr. H. Hlomani}
+\institute{Faculty of Sciences \\ Department of Computer Science \& Information Systems}
+\date{}
+
+\begin{document}
+
+% Title Slide without project title in footer
+{
+\setbeamertemplate{footline}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[biustblue] (current page.south west) rectangle ([xshift=\paperwidth,yshift=1.1cm]current page.south west);
+        \node[anchor=south west, text=white, font=\tiny] at ([yshift=0.55cm,xshift=0.3cm]current page.south west) {Chilume O. Gabriel \quad MSc. Computer Science \& Information Systems};
+        \node[anchor=south east, text=white, font=\scriptsize] at ([yshift=0.55cm,xshift=-0.3cm]current page.south east) {\insertframenumber{} / \inserttotalframenumber};
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{headline}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[white] (current page.north west) rectangle ([xshift=\paperwidth,yshift=-1.9cm]current page.north west);
+        \node[anchor=north west, xshift=0.3cm, yshift=-0.55cm] at (current page.north west) {\includegraphics[height=1.2cm]{biust_logo.jpg}};
+        \shade[top color=biustblue, bottom color=biustblue!70!black] ([xshift=3.4cm,yshift=-0.7cm]current page.north west) rectangle ([xshift=3.9cm,yshift=-1.6cm]current page.north west);
+        \shade[left color=biustorange, right color=biustorange!80!black] ([xshift=4.0cm,yshift=-0.7cm]current page.north west) rectangle ([xshift=\paperwidth,yshift=-1.6cm]current page.north west);
+        
+        % Centered and neat header text
+        \node[anchor=north west, text=white, font=\bfseries\tiny, align=left, xshift=4.3cm, yshift=-0.75cm] at (current page.north west) {Faculty of Sciences\\Department of Computer Science \& Information Systems};
+        \node[anchor=north west, text=white, font=\bfseries\footnotesize, xshift=4.3cm, yshift=-1.3cm] at (current page.north west) {PROPOSAL PAPER PRESENTATION};
+    \end{tikzpicture}
+}
+
+\begin{frame}
+\vspace{1.5cm}
+\centering
+\color{biustorange}
+\includegraphics[width=1.0\textwidth]{tower_biust.png}
+\end{frame}
+}
+
+% Presentation Outline
+\section{Presentation Outline}
+\begin{frame}
+\vspace{2cm}
+\textbf{\Large Presentation Outline}
+
+\vspace{0.1cm}
+\begin{itemize}
+    \item Background
+    \item Introduction
+    \item Blockchain Technology
+    \item Problem Statement
+    \item Objectives
+    \item Research Questions
+    \item Methodology
+    \item Proposed Solution
+    \item Conclusion
+    \item Contribution to Research
+\end{itemize}
+\end{frame}
+
+% Divider Slide Template
+\newcommand{\dividerSlide}[1]{
+\begin{frame}[plain]
+\vfill
+\centering
+\textbf{\LARGE #1}
+\vspace{0.3cm}
+\begin{tikzpicture}[remember picture,overlay]
+    \fill[gray!20] (current page.south west) ++(0,0.3cm) rectangle ([xshift=\paperwidth,yshift=0.35cm]current page.south west);
+    \fill[biustorange] (current page.south west) ++(0,0.3cm) rectangle ([xshift=\paperwidth*\insertframenumber/\inserttotalframenumber,yshift=0.35cm]current page.south west);
+\end{tikzpicture}
+\vfill
+\end{frame}
+}
+
+% Sections with Divider Slides
+
+\section{Background}
+\dividerSlide{Background}
+\begin{frame}
+\textbf{\Large Background}
+
+\vspace{0.5cm}
+\begin{itemize}
+    \item Traditional Supply Chain Management
+    \item Blockchain technology characteristics
+    \item USA, UK and Germany lead blockchain research
+    \item Challenges of interoperability
+\end{itemize}
+\end{frame}
+
+\section{Introduction}
+\dividerSlide{Introduction}
+\begin{frame}
+\textbf{\Large Introduction}
+
+\vspace{0.5cm}
+\begin{itemize}
+    \item What is Blockchain Technology?
+    \item What are Blockchain Interoperability Issues?
+    \item Existing Solutions
+    \item Problem Statement
+    \item Proposed Solution: Best Practices and Smart Contract Recommendations
+\end{itemize}
+\end{frame}
+
+\section{Blockchain Technology}
+\dividerSlide{Blockchain Technology}
+\begin{frame}
+\textbf{\Large What is Blockchain Technology}
+
+\vspace{0.5cm}
+\textit{"A blockchain is a linked list, where each block contains data and a hash of the previous block, thereby creating a chain."}
+\end{frame}
+
+\section{Problem Statement}
+\dividerSlide{Problem Statement}
+\begin{frame}
+\textbf{\Large Problem Statement}
+
+\vspace{0.5cm}
+Interoperability issues hinder seamless data exchange and collaboration between various blockchain platforms and businesses in supply chains. Addressing these issues is crucial to maximize the potential of blockchain technology in supply chain management.
+\end{frame}
+
+\section{Conclusion}
+\dividerSlide{Conclusion}
+\begin{frame}
+\textbf{\Large Conclusion}
+
+\vspace{0.5cm}
+\begin{itemize}
+    \item Seamless data exchange
+    \item Advancement of blockchain technology
+    \item Practical guidelines
+    \item Policy recommendations
+\end{itemize}
+\end{frame}
+
+\end{document}
